@@ -1,6 +1,6 @@
-colon "third word", third_word
-db "third word explanation", 0
-colon "second word", second_word
-db "second word explanation", 0
-colon "first word", first_word
+colon "nasm", third_word
+db "net wide assembly", 0
+colon "Moscow", second_word
+db "It is the capital of Russian Federation", 0
+colon "firstword", first_word
 db "first word explanation", 0

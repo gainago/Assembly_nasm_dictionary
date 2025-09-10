@@ -1,6 +1,6 @@
 section .text
 ;address a string will be in RDI register
-global string_length;
+global string_length
 string_length:
 
 	push rbp	;enter of function

@@ -1,9 +1,7 @@
 ;main.asm
 ;this function read key word from stdin and call function
 ;to fing key value in words.inc
-%include "colon.inc"
 section .data
-%include "words.inc"
 
 section .rodata
 word_key: db 'too long key word', 0

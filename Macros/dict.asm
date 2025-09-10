@@ -6,6 +6,10 @@ length_long_key: dq $ - long_key
 unfound_key: db 'this dictionary does not consists that key', 10, 0
 length_unfound_key: dq $ - unfound_key
 
+%include "colon.inc"
+section .data
+%include "words.inc"
+
 section .text
 
 extern string_copy
@@ -14,7 +18,6 @@ extern string_length
 extern print_newline
 extern print_string
 
-extern first_word; will be in main
 ;expect a pointer to null terminared key string in rdi
 ;pointer to last word defined also null terminared string(in consider case last enterty pointing to null)
 global find_word
