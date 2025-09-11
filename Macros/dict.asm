@@ -28,7 +28,7 @@ find_word:
 	push rdi ;save key string at rdp + 8
 ;created frame
 ;initialization data
-	mov r8, [first_word];containce current adress
+	mov r8, first_word;pointing to head adress
 	.loop:
 		lea rdi, [r8 + 8]
 		sub rsp, 256; 16*16 obeyed ABI standart of alignment
@@ -41,7 +41,7 @@ find_word:
 
 		cmp rax, rsp
 		jne .error_copy_string
-		mov rdi, [rbp + 8]
+		mov rdi, [rbp - 8]
 			;now rdi holds adress of key string
 		mov rsi, rax
 		push r8
@@ -59,7 +59,7 @@ find_word:
 	mov rax, 1
 	mov rdi, 2
 	mov rsi, unfound_key
-	mov rdx, length_unfound_key
+	mov rdx, [length_unfound_key]
 	syscall
 	jmp .end
 	
@@ -84,7 +84,7 @@ find_word:
 	mov rax, 1
 	mov rdi, 2
 	mov rsi, long_key
-	mov rdx, length_long_key
+	mov rdx,[length_long_key]
 	syscall
 	
 	call print_newline

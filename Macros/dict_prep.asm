@@ -7,17 +7,39 @@ length_unfound_key: dq $ - unfound_key
 
 
 [section .data]
+%line 2+1 colon.inc
+third_word:
 
-
-
-
+ dq 0
+%line 9+1 colon.inc
+db "nasm", 0
+%line 2+1 words.inc
+db "net wide assembly", 0
+%line 2+1 colon.inc
+second_word:
+%line 6+1 colon.inc
+ dq third_word
+%line 9+1 colon.inc
+db "Moscow", 0
+%line 4+1 words.inc
+db "It is the capital of Russian Federation", 0
+%line 2+1 colon.inc
+first_word:
+%line 6+1 colon.inc
+ dq second_word
+%line 9+1 colon.inc
+db "firstword", 0
+%line 6+1 words.inc
+db "first word explanation", 0
+%line 13+1 dict.asm
 [section .text]
 
 [extern string_copy]
 [extern string_equals]
 [extern string_length]
 [extern print_newline]
-exrern print_string
+[extern print_string]
+
 
 
 [global find_word]
