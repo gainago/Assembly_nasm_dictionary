@@ -1,5 +1,5 @@
 section .text
-global print_string
+global print_string:function
 
 extern string_length;
 

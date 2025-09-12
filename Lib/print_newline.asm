@@ -1,15 +1,15 @@
 section .text
-global print_newline	;
+global print_newline:function	
 
-extern print_char	;
+extern print_char	
 
-print_newline:		;
-	push rbp	;
-	mov rbp, rsp	;
+print_newline:		
+	push rbp	
+	mov rbp, rsp	
 
-	mov rdi, 10	;
-	call print_char	wrt ..plt;
+	mov rdi, 10	
+	call print_char	wrt ..plt
 
-	leave		;
-	ret		;
+	leave		
+	ret		
 	

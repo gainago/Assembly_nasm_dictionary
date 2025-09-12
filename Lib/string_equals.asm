@@ -2,7 +2,7 @@
 ; should compare strings and return 1 if they are equal, otherwise 0
 ; return value holds in rax
 section .text
-global string_equals;
+global string_equals:function
 string_equals:
 	push rbp;
 	mov rbp, rsp
@@ -16,6 +16,7 @@ string_equals:
 	jne .not_equal;
 	cmp r8, 0;check the end of string
 	je .equal;
+	inc rdx;
 	jmp .loop;
 .not_equal:
 	mov rax, 0;

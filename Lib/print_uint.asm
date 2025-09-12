@@ -1,6 +1,6 @@
 section .text
 
-extern print_string;
+extern print_string:funtion;
 
 global print_uint;
 ;function expect 8-byte integer in decimial format in rdi

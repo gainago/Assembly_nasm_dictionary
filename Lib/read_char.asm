@@ -1,6 +1,9 @@
+;read one character from stdin and return its code into rax
+;if will error or EOF returns -1
+
 section .text
 
-global read_char;
+global read_char:function
 
 read_char:
 	push rbp; create frame
@@ -13,16 +16,16 @@ read_char:
 	mov rdx, 1;
 	syscall;
 	cmp rax, 0; if EOF occur
-	je .end_of_text;
+	jle .end_of_text;
+	movzx rax, byte [rsp]
 	jmp .continue;
 
 .end_of_text:
 
-	mov qword [rsp], 0;
+	mov rax, -1;
 
 .continue:
 	
-	mov byte al, [rsp];
 	add rsp, 16;
 	leave;
 	ret;

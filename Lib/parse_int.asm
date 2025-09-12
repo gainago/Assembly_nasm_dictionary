@@ -3,7 +3,7 @@
 
 section .text
 extern parse_uint
-global parse_int
+global parse_int:function
 parse_int:
 	push rbp;
 	mov rbp, rsp; create stack frame

@@ -2,7 +2,7 @@
 ; returns the number  in rax
 ; count of characters count return in rdx 
 section .text 
-	global parse_uint;
+	global parse_uint:function
 parse_uint:
 	push rbp; create frame
 	mov rbp, rsp;

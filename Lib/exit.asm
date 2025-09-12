@@ -1,4 +1,4 @@
-global exit;
+global exit:function
 section .text
 ;output value takes from rdi register
 exit:

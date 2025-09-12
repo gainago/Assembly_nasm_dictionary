@@ -6,7 +6,7 @@
 ;rax: return adress of buffer if the string fits the buffer,
 ; otherwise returns zero
 section .text
-global string_copy
+global string_copy:function
 string_copy:
 
 	push rbp; create stack frame	

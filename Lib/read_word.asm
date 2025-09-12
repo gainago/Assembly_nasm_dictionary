@@ -8,14 +8,17 @@ section .text
 
 extern read_char
 
-global read_word
+global read_word:function
 
 read_word:
 	push rbp; create stack frame 
 	mov rbp, rsp;
 	
 	mov rcx, 0; rcx is counter of word length
-.loop:		; read one by one symbols from stdin
+.loop:	 
+	cmp rcx, rsi;
+	je .overflow;
+		; read one by one symbols from stdin
 	push rdi; save all callee save registers that we need
 	push rsi;
 	push rcx; 
@@ -23,6 +26,8 @@ read_word:
 	pop rcx;
 	pop rsi;
 	pop rdi;
+	cmp rax, 0
+	jle .end_of_word;
 	cmp rax, 0x20;
 	je .loop;
 	cmp rax, 0x9;
@@ -30,14 +35,11 @@ read_word:
 	cmp rax, 0xA;
 	je .loop;
 	mov byte [rdi + rcx], al;
-	cmp byte al, 0;
-	je .end_of_word;
 	inc rcx;
-	cmp rcx, rsi;
-	je .overflow;
 	jmp .loop;
 
 .end_of_word:
+	mov byte [rdi + rcx], 0
 	leave;
 	mov rax, rdi;
 	ret;

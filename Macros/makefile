@@ -5,7 +5,7 @@ PATH_TO_LIBRARY = ../Lib
 MY_LIB = mylib.so
 DYNAMIC_LINKER = /lib64/ld-linux-x86-64.so.2
 LINKER_FLAGS = -rpath '$$ORIGIN/$(PATH_TO_LIBRARY)' 
-COMPILER_FLAGS = -f elf64
+COMPILER_FLAGS = -f elf64 -g
 SOURCES = main.asm dict.asm
 OBJECTS = $(SOURCES:.asm=.o)
 TARGET = main
@@ -30,3 +30,4 @@ $(PATH_TO_LIBRARY)/$(MY_LIB):
 
 clean:
 	rm -rf $(OBJECTS)
+	rm $(TARGET)

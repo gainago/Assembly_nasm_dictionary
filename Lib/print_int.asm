@@ -1,7 +1,7 @@
 section .text
 extern print_uint;
 extern print_char;
-global print_int;
+global print_int:function
 ;function expects integer in rdi register
 print_int:
 	push rbp;

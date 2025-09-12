@@ -1,5 +1,5 @@
 section .text
-global print_char 
+global print_char:function 
 extern print_string;
 
 print_char:	;expect character code in rdi
